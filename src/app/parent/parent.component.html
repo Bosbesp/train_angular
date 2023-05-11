@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent (Homework)</title>
+  </head>
+  <body>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <div>
+        <input formControlName="id" (keyup)="submitForm()" />
+
+        <app-child
+          (movieData)="GetDetailMovie($event)"
+          [movieId]="movieId"
+        ></app-child>
+      </div>
+    </form>
+
+    <div class="Contain_table">
+      <table class="Detailtable">
+        <tr>
+          <th>NameMovie</th>
+          <th>TypeMovie</th>
+          <th>MoviePrice</th>
+          <th>Movieid</th>
+        </tr>
+        <tr>
+          <td>{{ movieName }}</td>
+          <td>{{ movieType }}</td>
+          <td>{{ moviePrice }}</td>
+          <td>{{ movieName }}</td>
+        </tr>
+      </table>
+    </div>
+    <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
+      >Home</a
+    >
+  </body>
+</html>
