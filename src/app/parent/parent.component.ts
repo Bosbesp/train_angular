@@ -10,21 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent {
   showMessage: string = '';
-
   inputParent = 'input';
-  movieId: string = '';
+  Movie_id: string = '';
   movieType: string = '';
   moviePrice: Number | undefined;
   movieName: string = '';
   form: any;
   movieData: any;
+  id: string ='';
 
   onNotifyClicked(message: string): void {
     this.showMessage = message;
   }
 
   public Imovie: Imovie | undefined;
-  id: string = '';
+ 
 
   constructor(
     private MovieService: MovieService,
@@ -35,21 +35,21 @@ export class ParentComponent {
   }
 
   submitForm(): void {
-    this.movieId = this.form.get('id')?.value;
+    this.id = this.form.get('id')?.value;
   }
 
   GetDetailMovie(List: Imovie): void {
     this.Imovie = List;
     console.log(this.Imovie);
-    this.movieId = this.Imovie.Movieid;
+    this.Movie_id = this.Imovie.Movieid;
     this.movieType = this.Imovie.TypeMovie;
     this.moviePrice = this.Imovie.MoviePrice;
     this.movieName = this.Imovie.NameMovie ?? '';
   }
   showMovie() {
     try {
-      if (this.movieId) {
-        this.MovieService.getMovieByID(this.movieId).subscribe((res) => {
+      if (this.Movie_id) {
+        this.MovieService.getMovieByID(this.Movie_id).subscribe((res) => {
           this.Imovie = res;
           this.movieData.emit(this.Imovie);
         });

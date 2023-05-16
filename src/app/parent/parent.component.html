@@ -13,7 +13,7 @@
 
         <app-child
           (movieData)="GetDetailMovie($event)"
-          [movieId]="movieId"
+          [movieId]="id"
         ></app-child>
       </div>
     </form>
@@ -30,7 +30,7 @@
           <td>{{ movieName }}</td>
           <td>{{ movieType }}</td>
           <td>{{ moviePrice }}</td>
-          <td>{{ movieName }}</td>
+          <td>{{ Movie_id }}</td>
         </tr>
       </table>
     </div>
